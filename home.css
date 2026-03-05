@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=WDXL+Lubrifont+TC&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+
+    font-family: Montserrat;
+
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+body{
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-out{
+    opacity: 0;
+}
+
+.home-container {
+    text-align: center;
+}
+
+.game-title {
+    font-size: 60px;
+    color: white;
+    margin-bottom: 40px;
+    margin-bottom: 150px;
+}
+
+.menu-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container {
+    width: 400px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    
+
+    background: rgba(255, 255, 255, 0.712);
+
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.contract {
+    
+    padding: 18px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Montserrat;
+
+    width: fit-content;
+    align-self: center;
+
+
+    color: aliceblue;
+    background: #833AB4;
+background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+
+    border: none;
+    border-radius: 14px;
+
+    cursor: pointer;
+
+
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 10px 22px rgba(253, 29, 29, 1),
+        0 0 14px rgba(131, 58, 180, 1);
+}
+
+button:active {
+    transform: scale(0.96);
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+.start {
+    padding: 20px 14px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Montserrat;
+
+
+    color: aliceblue;
+    background: #8cb7cf;
+    background: linear-gradient(90deg, rgba(140, 183, 207, 1) 0%, rgba(108, 196, 143, 1) 100%);
+
+    border: none;
+    border-radius: 14px;
+
+    cursor: pointer;
+
+
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.2),
+        0 0 14px rgba(94, 234, 212, 0.5);
+}
+
+button:active {
+    transform: scale(0.96);
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.2) inset;
+}

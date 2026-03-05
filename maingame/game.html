@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Chem quizz | t.tarzx</title>
+</head>
+
+<body>
+  <div class="game-container">
+    <div class="game-header">
+      <h1>Periodic Quiz</h1>
+    </div>
+
+    <section class="status-bar">
+      <div class="status-item timer">
+        <h3>⏱ Timer: </h3><span id="timer">120</span>
+      </div>
+      <div class="status-item score">
+        <span>⭐ Score: </span><span id="score">0</span>
+      </div>
+      <div class="status-item tier-box">
+        <h3>CHEMBLAST!</h3>
+      </div>
+    </section>
+
+    <div id="floating-score-container"></div>
+
+    <div id="combo-display"></div>
+
+    <section class="periodic-table">
+      <div id="periodic-table"></div>
+    </section>
+
+    <section class="card-section">
+      <h2>Periodic Card</h2>
+      <div id="card-container"></div>
+    </section>
+
+  </div>
+
+  <div id="menu-overlay" class="menu-overlay hidden">
+
+    <div class="menu-window">
+
+      <h2 id="menu-title">Paused</h2>
+
+      <div class="menu-buttons">
+
+        <button id="resumeBtn">▶ Continue</button>
+
+        <button id="restartBtn">🔄 Restart</button>
+
+        <button id="soundBtn">🔊 Sound: ON</button>
+
+        <button id="homeBtn">🏠 Home</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <button id="menuBtn" class="menu-button">☰</button>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
