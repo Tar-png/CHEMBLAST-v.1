@@ -201,8 +201,8 @@ body.fade-out {
     margin: 0 auto 40px auto;
     margin-bottom: 40px;
     display: grid;
-    grid-template-columns: repeat(18, 55px);
-    grid-template-rows: repeat(9, 55px);
+    grid-template-columns: repeat(18, minmax(18px, 1fr));
+    grid-template-rows: repeat(9, minmax(18px, 1fr));
     gap: 5px;
     justify-content: center;
 }
@@ -211,11 +211,11 @@ body.fade-out {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: clamp(8px, 1vw, 14px);
     font-weight: bold;
     border-radius: 6px;
-    width: 57px;
-    height: 57px;
+    width: 100%;
+    height: 100%;
     color: aliceblue;
 
 }
@@ -659,5 +659,6 @@ body.heal {
         opacity: 1;
 
     }
+
 
 }
