@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add("fade-out");
 
         setTimeout(() => {
-            window.location.href = "../home/index.html";
+            window.location.href = "index.html";
         }, 500);
 
     }
@@ -554,4 +554,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     startNewRound();
+
 });
