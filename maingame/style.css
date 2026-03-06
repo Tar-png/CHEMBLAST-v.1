@@ -73,17 +73,17 @@ body.fade-out {
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    padding: 30px;
+    padding: 20px;
 }
 
 .game-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: aliceblue;
 }
 
 .game-header h1 {
-    font-size: 45px;
+    font-size: clamp(24px, 8vw, 45px);
     letter-spacing: 2px;
     text-shadow: #0f2027;
 }
@@ -93,117 +93,74 @@ body.fade-out {
     justify-content: space-between;
     align-items: center;
     background: rgba(0, 0, 0, 0.4);
-    padding: 15px 20px;
+    padding: 10px 15px;
     border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     backdrop-filter: blur(5px);
     color: aliceblue;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .status-item {
     background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-item h3 {
+    font-size: 16px;
 }
 
 .tier-box {
     transition: 0.3s;
+    width: 100%;
+    text-align: center;
+    order: -1;
 }
 
-/* Tier colors */
-
-.tier1 {
-    color: #2ecc71;
-}
-
-.tier2 {
-    color: #27ae60;
-}
-
-.tier3 {
-    color: #3498db;
-}
-
-.tier4 {
-    color: #9b59b6;
-}
-
-.tier5 {
-    color: #e67e22;
-}
-
-.tier6 {
-    color: #e74c3c;
-}
-
-/* glow effect */
-
-.tier-glow {
-    animation: tierGlow 1s ease;
-}
-
-@keyframes tierGlow {
-    0% {
-        transform: scale(1);
+@media (min-width: 600px) {
+    .tier-box {
+        width: auto;
+        order: 0;
     }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.tier-transition {
-    animation: tierFlash 0.6s;
-}
-
-@keyframes tierFlash {
-
-    0% {
-        transform: scale(1);
-        filter: brightness(1);
-    }
-
-    50% {
-        transform: scale(1.02);
-        filter: brightness(1.4);
-    }
-
-    100% {
-        transform: scale(1);
-        filter: brightness(1);
-    }
-
-}
-
-.status-bar a {
-    text-decoration: none;
-    color: aliceblue;
-    cursor: help;
 }
 
 .card-section {
     width: 100%;
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 20px auto;
     text-align: center;
+    position: sticky;
+    padding-bottom: 20px;
+    bottom: 0;
 }
 
-.card-section h2 {
-    color: white;
-    margin-bottom: 15px;
+/* @media (min-height: 800px) {
+    .card-section {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+} */
+
+.periodic-table {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    padding: 10px 0;
 }
 
 #periodic-table {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
-    margin-bottom: 40px;
+    width: 100%;
+    min-width: 800px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(18, minmax(18px, 1fr));
-    grid-template-rows: repeat(9, minmax(18px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 6px;
     justify-content: center;
 }
 
@@ -211,13 +168,27 @@ body.fade-out {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: clamp(8px, 1vw, 14px);
+    aspect-ratio: 1 / 1;
+    font-size: clamp(10px, 1.8vw, 16px);
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 4px;
     width: 100%;
-    height: 100%;
     color: aliceblue;
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 5px;
+    text-align: center;
+}
 
+@media (min-width: 600px) {
+    .cell {
+        border-radius: 6px;
+    }
+}
+
+.card.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #7df5c1, 0 10px 20px rgba(0, 0, 0, 0.4);
+    border: 3px solid #7df5c1;
 }
 
 .alkali {

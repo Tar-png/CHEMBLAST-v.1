@@ -226,6 +226,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
 
+    let selectedCard = null;
+
     function createTable() {
         table.innerHTML = "";
 
@@ -243,10 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 cell.addEventListener("dragover", e => e.preventDefault());
 
-                cell.addEventListener("drop", function (e) {
-                    e.preventDefault();
-                    const draggedSymbol = e.dataTransfer.getData("text");
-
+                const handlePlacement = (draggedSymbol) => {
                     if (draggedSymbol === cell.dataset.correct) {
 
                         cell.textContent = draggedSymbol;
@@ -288,8 +287,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             }, 400);
                         }
-
-                        this.removeEventListener("drop", arguments.callee);
+                        
+                        if (selectedCard) {
+                            selectedCard.classList.remove("selected");
+                            selectedCard = null;
+                        }
 
                     } else {
 
@@ -325,6 +327,23 @@ document.addEventListener("DOMContentLoaded", function () {
                             wrongCard.classList.add("wrong");
                             setTimeout(() => wrongCard.classList.remove("wrong"), 300);
                         }
+
+                        if (selectedCard) {
+                            selectedCard.classList.remove("selected");
+                            selectedCard = null;
+                        }
+                    }
+                };
+
+                cell.addEventListener("drop", function (e) {
+                    e.preventDefault();
+                    const draggedSymbol = e.dataTransfer.getData("text");
+                    handlePlacement(draggedSymbol);
+                });
+
+                cell.addEventListener("click", function () {
+                    if (selectedCard) {
+                        handlePlacement(selectedCard.dataset.symbol);
                     }
                 });
 
@@ -434,6 +453,19 @@ document.addEventListener("DOMContentLoaded", function () {
             card.dataset.symbol = el.symbol;
 
             card.addEventListener("dragstart", dragStart);
+            
+            card.addEventListener("click", function() {
+                if (selectedCard) {
+                    selectedCard.classList.remove("selected");
+                }
+                
+                if (selectedCard === this) {
+                    selectedCard = null;
+                } else {
+                    selectedCard = this;
+                    this.classList.add("selected");
+                }
+            });
 
             cardContainer.appendChild(card);
         });
