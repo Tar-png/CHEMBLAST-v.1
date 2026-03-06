@@ -91,6 +91,7 @@ body.fade-out {
 .status-bar {
     display: flex;
     justify-content: space-between;
+    position: sticky;
     align-items: center;
     background: rgba(0, 0, 0, 0.4);
     padding: 10px 15px;
@@ -633,3 +634,4 @@ body.heal {
 
 
 }
+
