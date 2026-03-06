@@ -253,10 +253,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         combo++;
                         let baseScore = 100;
-                        let comboBonus = combo * 5;
+                        let comboBonus = combo * baseScore;
                         let totalGain = baseScore + comboBonus;
 
                         score += totalGain;
+                        const combotext = document.getElementById("totalGain");
+                        combotext.textContent = totalGain;
+                        
                         scoreDisplay.textContent = score;
                         updateScoreColor();
 
@@ -484,18 +487,29 @@ document.addEventListener("DOMContentLoaded", function () {
             createCards();
 
             timeLeft = 80;
-            timerDisplay.style.color = "white";
+            timerDisplay.style.color = "green";
             timerDisplay.textContent = timeLeft;
 
             startTimer();
         }, 800);
     }
 
+    
+
     function updateScoreColor() {
         const scoreEl = document.getElementById("score");
-
+        const comboGain = document.getElementById("totalGainH3");
 
         scoreEl.classList.remove(
+            "score-negative",
+            "score-low",
+            "score-medium",
+            "score-high",
+            "score-legend",
+            "score-mythic"
+        );
+
+        comboGain.classList.remove(
             "score-negative",
             "score-low",
             "score-medium",
@@ -518,6 +532,16 @@ document.addEventListener("DOMContentLoaded", function () {
             scoreEl.classList.add("score-mythic");
         }
 
+        if (combo < 300) {
+            comboGain.classList.add("score-medium");
+        } else if (score < 600) {
+            comboGain.classList.add("score-high");
+        } else if (score < 900) {
+            comboGain.classList.add("score-legend");
+        }  else {
+            comboGain.classList.add("score-mythic");
+        }
+
 
         // ทำเอฟเฟคเด้ง
         scoreEl.classList.add("score-pop");
@@ -534,11 +558,11 @@ document.addEventListener("DOMContentLoaded", function () {
         el.classList.add("floating-score");
 
         // เลือกสีตามคะแนน
-        if (points < 200) {
+        if (points < 300) {
             el.classList.add("float-low");
-        } else if (points < 300) {
+        } else if (points < 600) {
             el.classList.add("float-mid");
-        } else if (points < 400) {
+        } else if (points < 900) {
             el.classList.add("float-high");
         } else {
             el.classList.add("float-epic");
